@@ -75,8 +75,7 @@ Getting started
         $base_dir\$task_id\status.txt
     Detailed logs are written in:
         $base_dir\$task_id\log.txt
-    Status messages with colors that should please the LGBTQ+ community
-    are printed on screen
+    Status messages are printed on screen
 
 TODO
 ----
