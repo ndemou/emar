@@ -5,10 +5,15 @@ emar helps you run a powershell function on many client-PCs and get back
 results (if any). Your function may do anything powershell can do except
 return back huge amounts of data. All in all emar is a glorified wrapper 
 around Invoke-Command with extra logic to:
+
     - Detect and only attempt clients that respond to ping 
+    
     - Periodic retry of failed clients
+    
     - Collection of the results of successful tasks in files
+    
     - Nice logs and reports (more lines of code than I thought)
+    
     - Easily run more than one tasks
 
 Getting started
@@ -31,9 +36,13 @@ Getting started
     <SUCCESS> if it's job was done succesfully - anything else if not.
     You can write code to collect data from the clients or to perform 
     jobs like installing software.
+    
     It's probably good to abort on any error.
+    
     It's also a good idea to return clixml or json.
+    
     It's a bad idea to return huge amounts of data (they are collected
+    
     in memory from all clients before getting written to disk)
 
         notepad $base_dir\202011.testemar\task.ps1
@@ -66,12 +75,21 @@ Getting started
         emar.ps1 -command start -base_dir $base_dir
 
  6) As tasks run on clients:
+ 
     Output of sucessful tasks is saved in:
+    
         $base_dir\$task_id\results\<computer_name>.txt
+        
     Outpute of unsuccesful tasks in:
+    
         $base_dir\$task_id\bad.results.<computer_name>.txt
+        
     A nice summary of the current status is in:
+    
         $base_dir\$task_id\status.txt
+        
     Detailed logs are written in:
+    
         $base_dir\$task_id\log.txt
+        
     Status messages are printed on screen
