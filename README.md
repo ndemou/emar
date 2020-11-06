@@ -1,8 +1,9 @@
-EMAR, Easy MAnagment of Remote tasks
+emar, Easy MAnagment of Remote tasks
 ------------------------------------
 
 emar helps you run a powershell function on many client-PCs and get back
-results (if any). Your function may do anything powershell can do except
+results (if any). 
+Your function may do anything powershell can do except
 return back huge amounts of data. All in all emar is a glorified wrapper 
 around Invoke-Command with extra logic to:
 
@@ -15,10 +16,18 @@ around Invoke-Command with extra logic to:
     - Nice logs and reports (more lines of code than I thought)
     
     - Easily run more than one tasks
+    
+You need to enable PowerShell remoting before using emar. 
 
 Getting started
 ---------------
 
+ 0) On the clients enable PowerShell remoting and test by running
+        EnterPSSession "Client-Computer-Name"
+    from the server.
+    
+    All other steps are on the server.
+    
  1) Create a directory for emar to work in ($base_dir).
 
         $base_dir="c:\it\emar" 
