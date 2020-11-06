@@ -102,3 +102,8 @@ Getting started
         $base_dir\$task_id\log.txt
         
     Status messages are printed on screen
+
+An ugly outlook of emar
+-----------------------
+
+![Almost everything that matters in one image](emar-ugly-outlook.png)
