@@ -1,11 +1,9 @@
 emar, Easy MAnagment of Remote tasks
 ------------------------------------
 
-emar helps you run a powershell function on many client-PCs and get back
-results (if any). 
-Your function may do anything powershell can do except
-return back huge amounts of data. All in all emar is a glorified wrapper 
-around Invoke-Command with extra logic to:
+emar helps you to run powershell function(s) on many windows PCs/Servers 
+in parallel and get back the results. It relies on PowerShell remoting to run the functions. 
+You can think of emar as a glorified wrapper around Invoke-Command that provides these extra features:
 
  - Detect online clients (responding to ping) and only attempt tasks on them 
     
@@ -17,7 +15,11 @@ around Invoke-Command with extra logic to:
     
  - Easily run more than one tasks (just create more tasks - nothing else to do)
     
-emar relies on PowerShell remoting so you need to enable it on your clients. 
+Known limitations
+
+ - You can not return huge amounts of data because all the data from the parallel runs of tasks are cached in the server memory
+ 
+ - The output of the stream must end with the string "<SUCCESS>" which is anoying if you mainly want to receive PS objects from the task (but is essential if you want to know if a task succeeded or not).
 
 Getting started
 ---------------
