@@ -7,17 +7,17 @@ Your function may do anything powershell can do except
 return back huge amounts of data. All in all emar is a glorified wrapper 
 around Invoke-Command with extra logic to:
 
-    - Detect and only attempt clients that respond to ping 
+ - Detect online clients (responding to ping) and only attempt tasks on them 
     
-    - Periodic retry of failed clients
+ - Periodicly retry failed clients
     
-    - Collection of the results of successful tasks in files
+ - Collect errors & results. Log errors and store results in files
     
-    - Nice logs and reports (more lines of code than I thought)
+ - Nice logs and reports (more lines of code than I thought)
     
-    - Easily run more than one tasks
+ - Easily run more than one tasks (just create more tasks - nothing else to do)
     
-You need to enable PowerShell remoting before using emar. 
+emar relies on PowerShell remoting so you need to enable it on your clients. 
 
 Getting started
 ---------------
