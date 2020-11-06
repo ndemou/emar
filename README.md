@@ -31,14 +31,14 @@ Getting started
  1) Create a directory for emar to work in ($base_dir).
 
         $base_dir="c:\it\emar" 
-        mkdir -force $base_dir
+        mkdir -force $base_dir\tasks
 
  2) Select an id for your first task ($task_id) and mkdir $base_dir\$task_id
     I use this style '202010_Inst_Chrome' (for 2020-Octomber, install chrome)
     The id can be anything you like but don't start it with _
     (and no, don't use spaces -- use something like a variable name).
     
-        mkdir $base_dir\202011.testemar
+        mkdir $base_dir\tasks\202011.testemar
 
  3) Write a function and put it in $base_dir\$task_id\task.ps1
     The last (and maybe only) thing your function should return is the text 
@@ -54,7 +54,7 @@ Getting started
     
     in memory from all clients before getting written to disk)
 
-        notepad $base_dir\202011.testemar\task.ps1
+        notepad $base_dir\tasks\202011.testemar\task.ps1
         #------------------------------------------------------------
         # How much time your function needs to complete 
         # (worst-case scenario )
@@ -77,7 +77,7 @@ Getting started
  4) create a text file $base_dir\clients.txt with a list of computer names 
     (one per line) were you want to run your task on
     
-        echo 'test-pc' > $base_dir\202011.testemar 
+        echo 'test-pc' > $base_dir\tasks\202011.testemar\clients.txt
 
  5) Execute emar
 
@@ -87,19 +87,19 @@ Getting started
  
     Output of sucessful tasks is saved in:
     
-        $base_dir\$task_id\results\<computer_name>.txt
+        $base_dir\tasks\$task_id\results\<computer_name>.txt
         
     Outpute of unsuccesful tasks in:
     
-        $base_dir\$task_id\bad.results.<computer_name>.txt
+        $base_dir\tasks\$task_id\bad.results.<computer_name>.txt
         
     A nice summary of the current status is in:
     
-        $base_dir\$task_id\status.txt
+        $base_dir\tasks\$task_id\status.txt
         
     Detailed logs are written in:
     
-        $base_dir\$task_id\log.txt
+        $base_dir\tasks\$task_id\log.txt
         
     Status messages are printed on screen
 
