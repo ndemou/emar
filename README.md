@@ -9,24 +9,24 @@ You can think of emar as a glorified wrapper around Invoke-Command that provides
     
  - Periodicly retry failed clients.
     
- - Collect errors & results. Log errors and store results in files.
+ - Collect errors & results.
     
- - Nice logs and reports.
+ - Keep detailed logs and status reports.
     
- - Easily run more than one tasks (just create more tasks - nothing else to do).
+ - Easily run more than one tasks.
     
 Known limitations
 
- - You can not return huge amounts of data because all the data from the parallel runs of tasks are cached in the server memory.
+ - You can not return huge amounts of data because all the data from the parallel runs of tasks are cached in the servers memory.
  
  - The output of the stream must end with the string `"<SUCCESS>"` which is anoying if you mainly want to receive PS objects from the task (but is essential if you want to know if a task succeeded or not).
 
 Getting started
 ---------------
 
- 0) On the clients enable PowerShell remoting and test by running
-        `EnterPSSession "Client-Computer-Name"`
-    from the server.
+ 0) On all the clients you should have enabled PowerShell remoting. Running
+    `EnterPSSession "Client-Computer-Name"`
+    from the server should print the clients computer name
     
  All other steps are on the server.
     
