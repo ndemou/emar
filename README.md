@@ -30,21 +30,21 @@ Getting started
     
  All other steps are on the server.
     
- 1) Create a directory for emar to work in ($base_dir).
+ 1) Create a directory for emar to work in (`$base_dir`).
 
         $base_dir="c:\it\emar" 
         mkdir -force $base_dir\tasks
 
- 2) Select an id for your first task (`$task_id`) and `mkdir $base_dir\$task_id`
+ 2) Select an id for your first task (`$task_id`) and create a folder for it 
+    `mkdir $base_dir\$task_id`
     I use this style `'202010_Inst_Chrome'` (for 2020-Octomber, install chrome)
-    The id can be anything you like but don't start it with _
-    (and no, don't use spaces -- use something like a variable name).
+    The id can be anything that's a valid variable name but don't start it with _
     
-        mkdir $base_dir\tasks\202011.testemar
+        mkdir $base_dir\tasks\202011_Inst_Chrome
 
  3) Write a function and put it in `$base_dir\$task_id\task.ps1`
     The last (and maybe only) thing your function should return is the text 
-    `<SUCCESS>` if it's job was done succesfully - anything else if not.
+    `"<SUCCESS>"` if it's job was done succesfully - anything else if not.
     You can write code to collect data from the clients or to perform 
     jobs like installing software.
     
@@ -88,11 +88,11 @@ Getting started
  
     Output of sucessful tasks is saved in:
     
-        $base_dir\tasks\$task_id\results\<computer_name>.txt
+        $base_dir\tasks\$task_id\results\$computer_name.txt
         
     Outpute of failed tasks in:
     
-        $base_dir\tasks\$task_id\bad.results.<computer_name>.txt
+        $base_dir\tasks\$task_id\bad.results.$computer_name.txt
         
     A nice summary of the current status is in:
     
