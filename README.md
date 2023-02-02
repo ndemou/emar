@@ -1,7 +1,7 @@
 emar, Easy MAnagment of Remote tasks
 ------------------------------------
 
-emar helps you to run powershell function(s) on many windows PCs/Servers 
+emar helps you run powershell function(s) on many windows PCs/Servers 
 in parallel and get back the results. It relies on PowerShell remoting to run the functions. 
 You can think of emar as a glorified wrapper around Invoke-Command that provides these extra features:
 
