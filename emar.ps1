@@ -41,6 +41,7 @@ param (
     [string]$base_dir = "C:\it\emar"
 )
 
+$VERSION="1.1.0"
 $MAX_TASK_RETRIES=50
 function log($msg, $color, $dont_print) {
     $ts = "{0:MM/dd} {0:HH:mm:ss}" -f (Get-Date)
@@ -310,6 +311,15 @@ if (($command -eq "run") -and ($task_id)) {
     }}}
     $len_clients_todo=$clients_todo.Count
     display_clients $clients_todo "todo$cleanup_msg" "DarkGray" "Yellow"
+
+    if ($clients_todo) {
+		      # skip client if we can't access \\<CLIENT>\c$
+		      $orig_clients_todo = $clients_todo
+		      $clients_todo = ($clients_todo | ?{ Test-Path "\\$_\c$" })
+		      if ($orig_clients_todo -ne $clients_todo) {
+			         log ("{0} clients will be skiped because I can not access their C: drive" -f ($orig_clients_todo.Count - $clients_todo.Count)) Yellow
+		      }
+	   }
 
     #----------------------------------------------
     # So, do we really have anything to do?
